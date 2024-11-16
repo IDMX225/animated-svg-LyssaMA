@@ -1,0 +1,12 @@
+{
+  "name": "animated-svg-lyssama",
+  "version": "1.0.0",
+  "description": "Source\r https://undraw.co/illustrations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alyssa Anderson <alyssam.anderson@yahoo.com> (https://github.com/RVCC-IDMX/cowsay-LyssaMA)",
+  "license": "MIT"
+}
