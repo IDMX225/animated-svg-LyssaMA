@@ -1,13 +1,43 @@
-/* General SVG Style */
-svg {
-    width: 100%;
-    height: 100vh;
-    display: block;
+/* General CSS reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Sun animation */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #415a64;
+    overflow: hidden;
+}
+
+/* Woman Animation (Walking) */
+#woman {
+    animation: walkAnimation 2s ease-in-out infinite;
+    opacity: .5;
+}
+
+@keyframes walkAnimation {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(30px) rotate(15deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+#tree-group {
+    z-index: -1;
+}
+
+/* Sun Animation */
 #sun circle {
-    animation: sunMovement 5s ease-in-out infinite;
+    animation: sunMovement 8s ease-in-out infinite;
 }
 
 @keyframes sunMovement {
@@ -22,50 +52,50 @@ svg {
     }
 }
 
-/* Walking animation for woman */
-#person {
-    animation: walkAnimation 2s ease-in-out infinite;
+/* Tree (fade-in and slight movement) */
+#tree {
+    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.7));
+    opacity: 0;
+    animation: treeFadeIn 4s ease-out forwards, treeMovement 8s ease-in-out infinite;
 }
 
-@keyframes walkAnimation {
+@keyframes treeFadeIn {
     0% {
-        transform: translateX(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateX(10px) rotate(5deg);
-    }
-
-    50% {
-        transform: translateX(0) rotate(0deg);
-    }
-
-    75% {
-        transform: translateX(-10px) rotate(-5deg);
+        opacity: .5;
     }
 
     100% {
-        transform: translateX(0) rotate(0deg);
+        opacity: 1;
     }
 }
 
-/* Tree shadow effect */
-#tree {
-    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.7));
-    opacity: 0.4;
-    animation: treeShadowAnimation 5s ease-in-out infinite;
-}
-
-@keyframes treeShadowAnimation {
+@keyframes treeMovement {
 
     0%,
     100% {
-        transform: translateX(0) translateY(0);
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Ttop of tree animation */
+#tree-top {
+    animation: treeTopAnimation 10s ease-in-out infinite;
+}
+
+@keyframes treeTopAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
         opacity: 0.4;
     }
 
     50% {
-        transform: translateX(5px) translateY(5px);
+        transform: translateY(5px);
         opacity: 0.3;
     }
 }
@@ -74,12 +104,12 @@ svg {
 #ground path,
 #bushes path {
     opacity: 0;
-    animation: fadeInUp 2s ease-out forwards;
+    animation: fadeInUp 4s ease-out forwards;
 }
 
 @keyframes fadeInUp {
     0% {
-        opacity: 0;
+        opacity: .5;
         transform: translateY(20px);
     }
 
@@ -91,12 +121,12 @@ svg {
 
 /* Head and Hair animation */
 #head path {
-    animation: headAnimation 2s 1s ease-in-out forwards;
+    animation: headAnimation 4s 1s ease-in-out forwards;
 }
 
 @keyframes headAnimation {
     0% {
-        opacity: 0;
+        opacity: .5;
         transform: scale(0.5);
     }
 
@@ -107,12 +137,12 @@ svg {
 }
 
 #hair path {
-    animation: hairAnimation 2s 1.2s ease-in-out forwards;
+    animation: hairAnimation 2s 1.4s ease-in-out forwards;
 }
 
 @keyframes hairAnimation {
     0% {
-        opacity: 0;
+        opacity: .5;
         transform: translateY(10px) scale(0.8);
     }
 
@@ -122,16 +152,16 @@ svg {
     }
 }
 
-/* Arms and Legs (bobbing) */
+/* Arms and Legs (Walking) */
 #arms path,
 #legs path {
-    opacity: 0;
+    opacity: 1;
     animation: limbsAnimation 2s ease-in-out infinite alternate;
 }
 
 @keyframes limbsAnimation {
     0% {
-        opacity: 0;
+        opacity: 1;
         transform: translateY(10px);
     }
 
@@ -141,7 +171,192 @@ svg {
     }
 
     100% {
-        opacity: 0;
+        opacity: 1;
         transform: translateY(-10px);
     }
+}
+
+/* Body animations for walking */
+#body {
+    animation: bodyMovement 2s ease-in-out infinite;
+}
+
+@keyframes bodyMovement {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Feet and ground movement (walking) */
+#feet {
+    animation: footMovement 2s ease-in-out infinite alternate;
+}
+
+@keyframes footMovement {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+/* Clouds subtle movement */
+#clouds {
+    animation: cloudMovement 10s ease-in-out infinite;
+}
+
+@keyframes cloudMovement {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+/* Grass waving effect */
+#grass {
+    animation: grassWave 5s ease-in-out infinite;
+}
+
+@keyframes grassWave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+/* Sky */
+#sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #415a64;
+    top: 0;
+    left: 0;
+}
+
+/* Clouds, tree, other elements */
+#clouds path,
+#tree path,
+#bushes path,
+#ground path {
+    fill: #d8d1d1;
+}
+
+/* Additional styles for each section */
+#sun {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(228, 199, 11, 0.8);
+}
+
+/* Tree */
+#tree {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 120px;
+    height: 200px;
+    background-color: #000000;
+    border-radius: 15px;
+}
+
+/* Tree top */
+#tree-top {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    width: 100px;
+    height: 80px;
+    background-color: #006400;
+    border-radius: 50%;
+}
+
+/* Ground and bushes styles */
+#ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #006400;
+}
+
+#bushes {
+    position: absolute;
+    bottom: 40px;
+    left: 30%;
+    width: 60px;
+    height: 30px;
+    background-color: #006400;
+    border-radius: 50%;
+}
+
+/* Styling for head and body */
+#head {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #66391f;
+    border-radius: 50%;
+}
+
+/* Styling for hair */
+#hair {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background-color: #2e190a;
+    border-radius: 50%;
+}
+
+/* Styling for arms and legs */
+#arms,
+#legs {
+    position: absolute;
+    top: 120px;
+    width: 100px;
+    height: 20px;
+}
+
+#arms {
+    left: 30%;
+    background-color: #66391f;
+    animation: limbsAnimation 2s ease-in-out infinite alternate;
+}
+
+#legs {
+    left: 30%;
+    bottom: 20px;
+    background-color: #66391f;
 }
