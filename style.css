@@ -52,7 +52,7 @@ body {
     }
 }
 
-/* Tree (fade-in and slight movement) */
+/* Tree */
 #tree {
     filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.7));
     opacity: 0;
